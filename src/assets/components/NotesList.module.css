@@ -1,0 +1,28 @@
+.list {
+    width: 400px;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.notesContainer {
+    overflow-y: auto;
+}
+.notesContainer > div {
+    border-bottom: 1px solid #ccc;
+}
+.notesContainer > div:last-child {
+    border-bottom: none;
+}
+.noteHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+.date {
+    font-style: italic;
+    font-size: smaller;
+}
+.noteContent {
+    text-align: left;
+    margin-top: 0;
+}
