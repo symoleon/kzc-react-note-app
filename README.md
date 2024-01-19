@@ -10,3 +10,6 @@ Note resource should have this structure:
     content: string
 }
 ```
+
+## Reminder!
+Don't forget to run `npm install` after cloning this repo :P
