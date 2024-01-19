@@ -3,7 +3,7 @@ import ListStyles from './NotesList.module.css';
 type Note = {
     title: string,
     content: string,
-    date: Date,
+    createdAt: Date,
 }
 type Props = {
     notes: Array<Note>,
@@ -18,7 +18,7 @@ export default function NotesList({ notes }: Props) {
                     <div className={ListStyles.note} key={note.title}>
                         <div className={ListStyles.noteHeader}>
                             <h3>{note.title}</h3>
-                            <p className={ListStyles.date}>{note.date.toLocaleDateString()} {note.date.toLocaleTimeString()}</p>
+                            <p className={ListStyles.date}>{note.createdAt.toLocaleDateString()} {note.createdAt.toLocaleTimeString()}</p>
                         </div>
                         <p className={ListStyles.noteContent}>{note.content}</p>
                     </div>

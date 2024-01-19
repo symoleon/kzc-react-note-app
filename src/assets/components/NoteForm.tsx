@@ -5,7 +5,7 @@ import FormStyles from './NoteForm.module.css';
 type Note = {
     title: string,
     content: string,
-    date: Date,
+    createdAt: Date,
 }
 type Props = {
     addNoteHandler: (note: Note) => void,
@@ -22,12 +22,13 @@ export default function NoteForm({ addNoteHandler }: Props) {
         const note: Note = {
             title: formData.get('title') as string,
             content: formData.get('content') as string,
-            date: new Date(),
+            createdAt: new Date(),
         }
 
-        const res = await fetch('https://kzc.ora.coobie.dev/', {
+        const res = await fetch('https://65a9763e219bfa3718694979.mockapi.io/api/notes', {
             method: 'POST',
-            body: JSON.stringify(note)
+            body: JSON.stringify(note),
+            headers: {'content-type': 'application/json'},
         });
         if (res.ok) {
             addNoteHandler(note);

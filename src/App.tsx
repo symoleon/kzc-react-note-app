@@ -6,12 +6,12 @@ import './App.css';
 type Note = {
   title: string,
   content: string,
-  date: Date,
+  createdAt: Date,
 }
 type RawNote = {
   title: string,
   content: string,
-  date: string,
+  createdAt: string,
 }
 
 function App() {
@@ -27,15 +27,15 @@ function App() {
 
   useEffect(() => {
     const abortController = new AbortController();
-    fetch('https://kzc.ora.coobie.dev/', {
+    fetch('https://65a9763e219bfa3718694979.mockapi.io/api/notes', {
       signal: abortController.signal
     }).then(res => res.json())
       .then(data => {
-        const notes: Array<Note> = data.data.map((note: RawNote) => {
+        const notes: Array<Note> = data.map((note: RawNote) => {
           return {
             title: note.title,
             content: note.content,
-            date: new Date(note.date),
+            createdAt: new Date(note.createdAt),
           }
         });
         notes.reverse();
